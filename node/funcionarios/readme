@@ -1,0 +1,24 @@
+Para criar este aquivo package.json
+
+# Digite:
+npm init
+Depois responda o questionário.
+
+# Ou
+npm init -y
+Desta forma todos as perguntas serão respondidas com sim.
+
+Este arquivo tem como função descrever seu projeto e tem como principal objetivo
+é ter a descrição de todas as depedências que seu projeto precisa.
+
+// Dependencia exemplo:
+"dependencies": {
+    "axios": "^0.19.0"
+
+Estrutura do versionamento.
+Major (Primeiro numero)
+Minor (Numero do meio)
+Fix (Ultimos números)
+
+O ^ indica que podera ter o Minor atualizado porém o Major não.
+O ~ indica que podera ter o Fix atualizado porém o Major e minor não.
