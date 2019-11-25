@@ -1,15 +1,24 @@
-Para criar este aquivo package.json
+// Notas sobre o node e o package.json
 
-# Digite:
+# Para criar a pasta de modulos do node
+Digite 
+npm i
+
+# Para criar este aquivo package.json
+Digite:
 npm init
 Depois responda o questionário.
 
-# Ou
+Ou
 npm init -y
 Desta forma todos as perguntas serão respondidas com sim.
 
 Este arquivo tem como função descrever seu projeto e tem como principal objetivo
 é ter a descrição de todas as depedências que seu projeto precisa.
+
+// Instalando axios (Client http - faz requisições para obter informações de algo remoto)
+// OBS: Quando instalado os modulos do node o mesmo é instalado automaticamente.
+npm i --save axios
 
 // Dependencia exemplo:
 "dependencies": {
@@ -22,3 +31,7 @@ Fix (Ultimos números)
 
 O ^ indica que podera ter o Minor atualizado porém o Major não.
 O ~ indica que podera ter o Fix atualizado porém o Major e minor não.
+
+# Para executar o script
+npm start
+npm run script (script personalizado)
