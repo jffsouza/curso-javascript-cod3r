@@ -1,0 +1,11 @@
+# Comandos HTTP SERVER
+
+Instalar
+npm i -g http-server 
+
+Executar
+http-server .
+
+Executar sem cache
+http-server -c-1
+

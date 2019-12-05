@@ -1,0 +1,63 @@
+Quando eu instalo um módulo do NodeJS, devo usar –save ou –save-dev? E porque eu tenho as duas opções?
+
+Vem descobrir ;)
+
+Post curto, mas pra sanar a dúvida de uma vez por todas:
+
+–save ou –save-dev?
+
+Em NodeJS, quando você está utilizando algum módulo que não faz parte do core, você precisa instalá-lo com o comando npm install, ou npm i. E para que você possa facilmente reinstalar esses módulos em vários ambientes diferentes, sem precisar ficar lembrando quais você utilizou, ou fazendo isso manualmente, você cria um arquivo na raiz do seu projeto chamado package.json - que pode ser criado a partir do comando npm init, e respondendo a algumas perguntas - que irá gerenciar todas as dependências do seu projeto.
+
+Quando você instala um módulo utilizando a flag --save, o módulo é salvo em dependencies, dentro do package.json.
+
+Por exemplo: no nosso projeto, nós iremos utilizar o express e o mongoose. O Express é um web framework que irá nos ajudar a facilitar nosso trabalho ao trabalhar com aplicações web no NodeJS. Já o mongoose é um módulo que vai nos ajudar a modelar nossa base de dados, criada em Mongo DB. Para instalá-lo, você vai utilizar o comando:
+
+1
+npm i --save express mongoose
+E ele fica salvo no package.json, assim:
+
+1
+2
+3
+4
+"dependencies" : {
+  "express": "^4.12.2",
+  "mongoose": "^3.8.24"
+}
+Aqui você usa o --save, pois esses dois módulos são uma dependência do seu projeto. Você precisa deles em produção, senão a sua aplicação não funciona.
+
+Agora imagine a seguinte situação: você precisa fazer testes unitários na sua aplicação, e vai utilizar o Mocha para criar a base dos testes, e o Chai para fazer as asserções. Você usa --save ou --save-dev?
+
+A pergunta que deve ser feita antes de instalar é a seguinte: Preciso desse módulo em produção? A minha aplicação funciona sem ele?
+
+Se a resposta for “não” para a primeira pergunta, e “sim” para a segunda, você só irá precisar do módulo em ambiente de desenvolvimento. Logo, você pode utilizar o --save-dev:
+
+1
+npm i --save-dev mocha chai
+E isso irá criar uma entrada devDependencies no seu package.json:
+
+1
+2
+3
+4
+"devDependencies": {
+  "chai": "^2.1.0",
+  "mocha": "^2.1.0"
+}
+Essas entradas servem basicamente para facilitar o seu trabalho. Sempre que você precisar reinstalar qualquer um desses módulos, você não precisa utilizar novamente o comando de instalação, deixando explícito o nome dos módulos. Pode usar somente npm i, que o NPM irá procurar o seu arquivo package.json e, ao encontrá-lo, irá baixar e instalar todas as dependências em dependencies e devDependencies pra você.
+
+Agora você sabe que deve utilizar o --save somente para instalar módulos que serão usados em produção, e o --save-dev somente para módulos que serão usados no momento do desenvolvimento.
+
+Mas executando o npm i, todos os módulos serão instalados. Imagine que você só quer que, quando estiver no seu servidor de produção, somente os módulos em dependencies sejam instalados, e os módulos em devDependencies sejam ignorados.
+
+Para fazer isso, vocề pode utilizar o comando:
+
+1
+npm i --production
+Isso é bastante interessante se você estiver utilizando uma ferramenta de CI, por exemplo, onde o seu build compila toda a sua aplicação e disponibiliza em produção. Usando o comando acima, somente os módulos em dependencies serão instalados :D
+
+UPDATE
+
+Como bem lembrado nos comentários pelo Osmar, se você setar a sua variável de ambiente NODE_ENV para production, e executar o npm i, somente as dependências de produção serão instaladas, sem a necessidade do --production ;)
+
+ref: https://blog.da2k.com.br/2015/03/03/gerenciando-corretamente-dependencias-em-nodejs-save-ou-save-dev-1/
