@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        /* Tipos de Seletores */
+        
+        /* Seletor universal * - Seleciona todos elementos da pagina.     
+        * {
+            color: #ff0;
+            background-color: #f77;
+        }
+
+        */
+
+        /* Seletor de classe .
+        .tag {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /* Seletor de ID #
+        #aprovados {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /* Seletor aninhado > - (Utiliza o  elemento div que 
+        esta dentro de aninhado)
+        #aninhado > div {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /* Seletor aninhado - (Utiliza o elemento section que 
+        esta dentro de aninhado - Não é necessario simbolo)
+        #aninhado section {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /* Seletor de irmãos + (siblings) - Um esta em 
+        seguida do outroou seja, adjacentes
+        p + ul {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /* Seletor de irmãos ~ (siblings) - não
+        necessariamente é necessario estar ao lado do outro
+        p ~ ol {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /* Seletor de propriedades [] - procura todos elementos
+        que possuem a mesma propriedade definida entre colchetes.
+        [feira] {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /* Seletor de propriedades [] - procura todos elementos
+        que possuem a mesma propriedade definida entre colchetes.
+        [feira~=escitorio] {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /* Seletor de filhos :nth-child() - Seleciona o primeiro filho
+        de um determinada tag, no exemplo foi utilizado o span
+        span:nth-child(1) {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /* Seletor de filhos :nth-child(odd) ou :nth-child(even) - Seleciona 
+        os  filhos impares ou pares de um determinada tag, no exemplo foi 
+        utilizado o section
+        section:nth-child(odd) {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /* Seletor de tipos :nth-of-type() - Seleciona o elemento espeficiado
+        dentro de uma tag no caso do exemplo: segunda elemento da tag span
+        dentro de section
+        utilizado o section
+        section > span:nth-of-type(2) {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>
